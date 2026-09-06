@@ -1,28 +1,9 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
-
-# Virtual environment
-venv/
-env/
-
-# VSCode settings
+CS180_fa2026_proj1_data/
+test_images/
+service-pnp-ppem.jpg
+service-pnp-ppem2.jpg
+service-pnp-prokc.jpg
+*.jpg
+*.tif
+*.tiff
 .vscode/
-
-# Ignore nested code folder if it's a separate repo
-code/
-
-# macOS
-.DS_Store
-
-# Logs
-logs/
-*.log
-
-# Images or data large files (keep if needed)
-# Uncomment to ignore large datasets
-# data/
