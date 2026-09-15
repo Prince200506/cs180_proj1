@@ -1,7 +1,7 @@
 CS180_fa2026_proj1_data/
 test_images/
-*.jpg
-*.tif
-*.tiff
+# *.jpg
+# *.tif
+# *.tiff
 .vscode/
 

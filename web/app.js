@@ -5,18 +5,19 @@ const groups = [
     prefix: "code/results",
     files: [
       "cathedral.jpg",
+      "monastery.jpg",
+      "tobolsk.jpg",
+      
       "church.jpg",
       "emir.jpg",
       "harvesters.jpg",
       "icon.jpg",
       "ilemselga.jpg",
       "melons.jpg",
-      "monastery.jpg",
       "religous_painting.jpg",
       "self_portrait.jpg",
       "siren.jpg",
       "three_generations.jpg",
-      "tobolsk.jpg",
       "wharf.jpg"
     ]
   },
@@ -25,8 +26,8 @@ const groups = [
     countId: "test-results-count",
     prefix: "code/test_results",
     files: [
-      "test1_jpg.jpg",
-      "test1_tif.jpg",
+      // "test1_jpg.jpg",
+      // "test1_tif.jpg",
       "test2_jpg.jpg",
       "test2_tif.jpg",
       "test3_jpg.jpg",
