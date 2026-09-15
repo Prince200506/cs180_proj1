@@ -1,0 +1,154 @@
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --text: #1f2430;
+  --muted: #5f6878;
+  --accent: #0f6d70;
+  --accent-soft: #d9f1ec;
+  --border: #dde2ea;
+  --shadow: 0 8px 24px rgba(24, 39, 75, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 80% -10%, #d5f2f2 0%, transparent 40%),
+    radial-gradient(circle at 10% 10%, #e9ecff 0%, transparent 35%),
+    var(--bg);
+}
+
+.hero {
+  padding: 3.5rem 1.2rem 2rem;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: "DM Mono", monospace;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+
+h1 {
+  margin: 0.65rem 0 0.7rem;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.05;
+}
+
+.subtitle {
+  margin: 0 auto;
+  max-width: 720px;
+  color: var(--muted);
+}
+
+.content {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto 2.5rem;
+  display: grid;
+  gap: 2rem;
+}
+
+section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 1.2rem;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+}
+
+.count {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.8rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(20, 35, 60, 0.13);
+}
+
+.card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.thumb {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  width: 100%;
+  display: block;
+  background: #edf1f7;
+}
+
+.caption {
+  padding: 0.65rem 0.75rem 0.8rem;
+}
+
+.name {
+  margin: 0;
+  font-family: "DM Mono", monospace;
+  font-size: 0.78rem;
+  color: #394152;
+  word-break: break-all;
+}
+
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding-bottom: 2.2rem;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    padding-top: 2.5rem;
+  }
+
+  .content {
+    width: min(1200px, calc(100% - 1rem));
+    gap: 1rem;
+  }
+
+  section {
+    padding: 0.9rem;
+  }
+}
