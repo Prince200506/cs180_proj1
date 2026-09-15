@@ -4,5 +4,4 @@ test_images/
 *.tif
 *.tiff
 .vscode/
-test_results/
-code/results/
+
