@@ -10,33 +10,78 @@
   <link rel="stylesheet" href="web/styles.css" />
 </head>
 <body>
-  <header class="hero">
-    <p class="eyebrow">COMPSCI 180 · Project 1</p>
-    <h1>Colorization Gallery</h1>
-    <p class="subtitle">Aligned outputs from the stacked glass-plate channel reconstruction pipeline.</p>
-  </header>
+  <div class="page-shell">
+    <header>
+      <nav class="navbar" aria-label="Main navigation">
+        <div class="logo">CS 180 · Project 1</div>
+        <ul class="menu">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#final-results">Final Results</a></li>
+          <li><a href="#test-results">Test Results</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <main class="content">
-    <section>
-      <div class="section-head">
-        <h2>Final Results</h2>
-        <span class="count" id="results-count"></span>
+    <main>
+      <section class="hero" id="overview">
+        <div class="hero-copy">
+          <p class="eyebrow">UC Berkeley · CS180/280A: Intro to Computer Vision and Computational Photography</p>
+          <h1>Colorizing the Prokudin-Gorskii Glass Plates</h1>
+          <p class="subtitle">This project reconstructs color images from stacked grayscale negatives by splitting the three channels, aligning them with either a single-scale search or a coarse-to-fine pyramid, and then composing the final RGB result.</p>
+          <div class="hero-meta">
+            <span>Single-scale alignment</span>
+            <span>Pyramid alignment</span>
+            <span>GitHub Pages gallery</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-grid" aria-label="Project highlights">
+        <article class="info-card">
+          <span class="label">Task</span>
+          <h3>Split and align stacked channels</h3>
+          <p>The input image contains the blue, green, and red exposures stacked vertically. The notebook first splits the scan into three equal parts, trims the borders, and then searches for the best translation that aligns the green and red channels to blue.</p>
+        </article>
+
+        <article class="info-card">
+          <span class="label">Strategy</span>
+          <h3>Use single-scale for small scans, pyramid for large scans</h3>
+          <p>The three special images, <strong>cathedral</strong>, <strong>monastery</strong>, and <strong>tobolsk</strong>, are shown as single-scale results. The remaining images use the pyramid method because the displacement is larger and the full-size scans are more expensive to search directly.</p>
+        </article>
+
+        <article class="info-card">
+          <span class="label">Presentation</span>
+          <h3>Compare methods side by side</h3>
+          <p>The test set is displayed row by row so you can compare the signal aligner result and the pyramid result for the same image immediately. The layout mirrors the project-webpage style expected for CS180: concise explanation, grouped sections, and image-first presentation.</p>
+        </article>
+      </section>
+
+      <section id="final-results" class="section-card">
+        <div class="section-header">
+          <span class="section-tag">Part 1</span>
+          <h2>Final Results</h2>
+          <span class="count" id="results-count"></span>
       </div>
-      <div class="grid" id="results-grid"></div>
+        <p class="part-intro">The three low-resolution examples at the top were aligned using a single-scale signal aligner. The rest of the gallery uses the pyramid pipeline, which is better suited to the large TIFF scans and larger displacements. Border pixels are ignored during scoring so that the wrap-around artifacts from shifting do not affect the match.</p>
+        <div class="section-body" id="results-grid"></div>
     </section>
 
-    <section>
-      <div class="section-head">
-        <h2>Test Results</h2>
-        <span class="count" id="test-results-count"></span>
+      <section id="test-results" class="section-card">
+        <div class="section-header">
+          <span class="section-tag">Part 2</span>
+          <h2>Test Results</h2>
+          <span class="count" id="test-results-count"></span>
       </div>
-      <div class="grid" id="test-results-grid"></div>
-    </section>
-  </main>
+        <p class="part-intro">For the test images, each row shows the same input processed by two methods. This makes it easy to compare whether the signal aligner is already sufficient or whether the pyramid method produces a cleaner final alignment.</p>
+        <div class="section-body" id="test-results-grid"></div>
+      </section>
+    </main>
 
-  <footer class="footer">
-    <p>Hosted from the <strong>web</strong> branch on GitHub Pages.</p>
-  </footer>
+    <footer>
+      <p>Hosted from the <strong>web</strong> branch on GitHub Pages.</p>
+      <p>CS180 Project 1 · Prokudin-Gorskii colorization</p>
+    </footer>
+  </div>
 
   <script src="web/app.js"></script>
 </body>
