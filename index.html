@@ -27,7 +27,7 @@
         <div class="hero-copy">
           <p class="eyebrow">UC Berkeley · CS180/280A: Intro to Computer Vision and Computational Photography</p>
           <h1>Colorizing the Prokudin-Gorskii Glass Plates</h1>
-          <p class="subtitle">This project reconstructs color images from stacked grayscale negatives by splitting the three channels, aligning them with either a single-scale search or a coarse-to-fine pyramid, and then composing the final RGB result.</p>
+          <p class="subtitle">This project reconstructs color images from stacked grayscale negatives by splitting the three channels, aligning them with either a single-scale search or a coarse-to-fine pyramid, and then composing the final RGB result. For alignment, I compare L2 and NCC on the cropped interior region: L2 minimizes pixel distance, while NCC rewards stronger normalized correlation.</p>
           <div class="hero-meta">
             <span>Single-scale alignment</span>
             <span>Pyramid alignment</span>
@@ -52,7 +52,7 @@
         <article class="info-card">
           <span class="label">Presentation</span>
           <h3>Compare methods side by side</h3>
-          <p>The test set is displayed row by row so you can compare the signal aligner result and the pyramid result for the same image immediately. The layout mirrors the project-webpage style expected for CS180: concise explanation, grouped sections, and image-first presentation.</p>
+          <p>The test set shows both methods for the same image in one row so you can compare the signal aligner result and the pyramid result immediately. The layout mirrors the project-webpage style expected for CS180: concise explanation, grouped sections, and image-first presentation.</p>
         </article>
       </section>
 
@@ -72,7 +72,7 @@
           <h2>Test Results</h2>
           <span class="count" id="test-results-count"></span>
       </div>
-        <p class="part-intro">For the test images, each row shows the same input processed by two methods. This makes it easy to compare whether the signal aligner is already sufficient or whether the pyramid method produces a cleaner final alignment.</p>
+        <p class="part-intro">For the test images, each sample shows the same input processed by two methods in one horizontal row. This makes it easy to compare whether the signal aligner is already sufficient or whether the pyramid method produces a cleaner final alignment.</p>
         <div class="section-body" id="test-results-grid"></div>
       </section>
     </main>
@@ -80,6 +80,7 @@
     <footer>
       <p>Hosted from the <strong>web</strong> branch on GitHub Pages.</p>
       <p>CS180 Project 1 · Prokudin-Gorskii colorization</p>
+      <p class="signature">ZIHAN WANG · ucb123090601@berkeley.edu</p>
     </footer>
   </div>
 
@@ -107,21 +108,21 @@
 
     const testResults = [
       {
-        sample: "test2",
+        sample: "test",
         variants: [
           { label: "Signal aligner", file: "test2_jpg.jpg" },
           { label: "Pyramid", file: "test2_tif.jpg" }
         ]
       },
       {
-        sample: "test3",
+        sample: "test",
         variants: [
           { label: "Signal aligner", file: "test3_jpg.jpg" },
           { label: "Pyramid", file: "test3_tif.jpg" }
         ]
       },
       {
-        sample: "test4",
+        sample: "test",
         variants: [
           { label: "Signal aligner", file: "test4_jpg.jpg" },
           { label: "Pyramid", file: "test4_tif.jpg" }
@@ -129,10 +130,10 @@
       }
     ];
 
-    function createCard(prefix, file, label, wide = false) {
+    function createCard(prefix, file, label, variant = "normal") {
       const url = `${prefix}/${encodeURIComponent(file)}`;
       const card = document.createElement("article");
-      card.className = wide ? "card card--wide" : "card";
+      card.className = variant === "wide" ? "card card--wide" : variant === "compact" ? "card card--compact" : "card";
 
       card.innerHTML = `
         <a href="${url}" target="_blank" rel="noopener noreferrer">
@@ -198,18 +199,18 @@
 
       for (const item of testResults) {
         const row = document.createElement("div");
-        row.className = "result-row";
+        row.className = "test-sample";
 
         const title = document.createElement("div");
-        title.className = "row-title";
-        title.textContent = item.sample;
+        title.className = "sample-title";
+        title.textContent = `${item.sample} comparison`;
         row.appendChild(title);
 
         const pair = document.createElement("div");
         pair.className = "pair-grid";
 
         for (const variant of item.variants) {
-          pair.appendChild(createCard("code/test_results", variant.file, variant.label));
+          pair.appendChild(createCard("code/test_results", variant.file, variant.label, "compact"));
         }
 
         row.appendChild(pair);

@@ -11,7 +11,6 @@ This document defines a simple branch architecture for development and GitHub Pa
 
 - index.html: GitHub Pages entry point.
 - web/styles.css: page styling.
-- web/app.js: image gallery rendering logic.
 - code/results/: final result images shown on the page.
 - code/test_results/: test result images shown on the page.
 
