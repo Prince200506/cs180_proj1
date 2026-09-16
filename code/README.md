@@ -1,12 +1,11 @@
-# proj1 English Guide
+# CS180 Proj1  Guide
 
-This document explains the implementation logic of the project and how to configure the environment and run the main notebook.
+This document explains the implementation logic of the project and how to configure the environment and run the main notebook. 
 
-The Chinese version is available in README.md.
 
 ## Project Goal
 
-This project implements the classic Prokudin-Gorskii colorization pipeline. The input image is a single grayscale scan with three channels stacked vertically. The goal is to split the scan into blue, green, and red channels, align the green and red channels to the blue channel, and then merge them into a color image.
+This project implements the classic Prokudin-Gorskii colorization pipeline. The input image is a single grayscale scan with three channels stacked vertically. The goal is to split the scan into blue, green, and red channels, align them to correct for the camera misalignment, and then reconstruct a color image.
 
 ## Repository Layout
 
@@ -15,9 +14,10 @@ This project implements the classic Prokudin-Gorskii colorization pipeline. The 
 - code/main.ipynb : the main workflow for loading, splitting, aligning, visualizing, and saving results
 - test_images/ : input test images
 - test_results/ : output directory for saved results
-- CS180_fa2026_proj1_data/ : course-provided dataset
+- CS180_fa2026_proj1_data/ : course-provided dataset (you should consider its PATH!)
 - web/ : static page assets for display
 
+The site is live at [this](https://prince200506.github.io/cs180_proj1/)
 ## Implementation Logic
 
 ### 1. Load and normalize the input image
@@ -26,7 +26,7 @@ main.ipynb reads a stacked grayscale image from test_images/ and normalizes pixe
 
 ### 2. Split the three channels
 
-The image is divided into three equal vertical sections, which are treated as the blue, green, and red channels. The notebook first computes one third of the image height and then slices the image into b, g, and r.
+The image is divided into three equal vertical sections, which are treated as the blue, green, and red channels. The notebook first computes one third of the image height and then slices the image accordingly.
 
 ### 3. Crop black borders
 
@@ -73,7 +73,9 @@ After alignment, the red, green, and blue channels are stacked back into an RGB 
 
 If you already have a conda environment named cv, activate it first:
 
-conda activate cv
+```bash
+conda activate <your virtual environment>
+```
 
 ### 2. Check dependencies
 
@@ -120,5 +122,4 @@ The final colorized image is saved in test_results/. The output filename usually
 
 ## Notes
 
-- code/colorize_skel.py contains a compact single-scale aligner that can be used as a reference.
 - code/main.ipynb is the primary entry point and is recommended for running the project because it shows each intermediate result visually.
